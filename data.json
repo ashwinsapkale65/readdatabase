@@ -1,40 +1,26 @@
-
 {
-    "quiz": {
-        "sport": {
-            "q1": {
-                "question": "Which one is correct team name in NBA?",
-                "options": [
-                    "New York Bulls",
-                    "Los Angeles Kings",
-                    "Golden State Warriros",
-                    "Huston Rocket"
-                ],
-                "answer": "Huston Rocket"
-            }
-        },
-        "maths": {
-            "q1": {
-                "question": "5 + 7 = ?",
-                "options": [
-                    "10",
-                    "11",
-                    "12",
-                    "13"
-                ],
-                "answer": "12"
-            },
-            "q2": {
-                "question": "12 - 8 = ?",
-                "options": [
-                    "1",
-                    "2",
-                    "3",
-                    "4"
-                ],
-                "answer": "4"
-            }
-        }
+  "sample":[
+    {
+      "description":"Lady with a red umbrella",
+      "image-url":"https://i.imgur.com/pwpWaWu.jpg"
+    },
+    {
+      "description":"Flowers and some fruits",
+      "image-url":"https://i.imgur.com/KIPtISY.jpg"
+    },
+    {
+      "description":"Beautiful scenery",
+      "image-url":"https://i.imgur.com/2jMCqQ2.jpg"
+    },
+    {
+      "description":"Some kind of bird",
+      "image-url":"https://i.imgur.com/QFDRuAh.jpg"
+    },
+    {
+      "description":"The attack of dragons",
+      "image-url":"https://i.imgur.com/8yIIokW.jpg"
     }
-}
+    
+  ]
 
+}
