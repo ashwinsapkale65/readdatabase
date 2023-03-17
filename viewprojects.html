@@ -5,21 +5,8 @@
   <title>CodePen - UI Cards</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<!DOCTYPE html>
-<html class="no-js" lang="en-GB">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="An example pen showing how a basic CSS Grid container can create a nice, responsive card layout.">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>View Projects</title>
-  </head>
   <style>
-    *,
+  *,
 *::before,
 *::after {
   margin: 0;
@@ -30,7 +17,10 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+
 }
+
+
 
 body {
   display: flex;
@@ -121,7 +111,6 @@ body {
 
 
 
-
 .main {
   display: none;
   position: fixed;
@@ -130,16 +119,17 @@ body {
   width: 340px;
 
   transform: translate(-50%, -50%);
-  overflow: hidden;
+  
   background-color: #fdfcfc;
   font-size: 16px;
   line-height: 22px;
   color: #000;
   border-radius: 7px;
   box-shadow: -4px -4px 20px rgba(0, 0, 0, 0.505);
-  margin: 30px auto;
+  margin:  auto;
     height: 90%;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
 }
 p {
@@ -158,7 +148,7 @@ letter-spacing: 2px;
   animation-duration: 2s;
 
  
-  border-radius: 50%;
+  border-radius: cover;
   border-color: #000;
   
 }
@@ -239,9 +229,65 @@ color: black;
 }
 
 
-  
-  
+
+.scroll {
+  display: none;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  position: relative;
+  animation: down 1.5s infinite;
+  -webkit-animation: down 1.5s infinite;
+}
+.scroll::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 18px;
+  width: 18px;
+  height: 18px;
+  border-left: 2px solid #333;
+  border-bottom: 2px solid #333;
+  transform: rotate(-45deg);
+}
+
+@keyframes down {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translateY(15px);
+  }
+  40% {
+    transform: translate(0);
+  }
+}
+@-webkit-keyframes down {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translateY(15px);
+  }
+  40% {
+    transform: translate(0);
+  }
+}
   </style>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="An example pen showing how a basic CSS Grid container can create a nice, responsive card layout.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>View Projects</title>
+  </head>
 </html>
 <div class="grid">
  
@@ -258,7 +304,7 @@ color: black;
 <!-- popup window -->
 
 <main class="main" id="main">
-  
+ <center><div  class="scroll" id="scroll"></div></center> 
   <section class="top-card">
     <img  src="https://1.bp.blogspot.com/-aEW05JvCxz0/YTTfWHEtbjI/AAAAAAAACdc/ePAQ9O9moIsa3aEDexcBPguNRCT69mJLgCNcBGAsYHQ/s16000/user.jpg" alt="user picture">
     <div class="menu-icon">
@@ -302,7 +348,10 @@ color: black;
     <a href="#" class="social-icon github"><i class="fab fa-github"></i></a>
     <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin"></i></a>
 
+  
+
     <section class="links">
+ 
 <button class="bt" >Source Code</button>
 <button class="bt">Project Demo</button>
      
@@ -321,7 +370,6 @@ color: black;
    document.getElementById(id).style.display ='none';
  }
  </script>
-
 <script>
   function createcard(sname,pname,update)
 {
@@ -419,6 +467,23 @@ fetch('https://ashwinsapkale65.github.io/readdatabase/projects.json')
   });
 })
 .catch(error => console.error(error));
+
+if (screen.width < 1024) {
+  document.getElementById('scroll').style.display = "block"
+
+  setTimeout(() => {
+    const box = document.getElementById('scroll');
+  
+    // 👇️ removes element from DOM
+    box.style.display = 'none';
+  
+    // 👇️ hides element (still takes up space on page)
+    // box.style.visibility = 'hidden';
+  }, 2000); 
+ 
+}
+
+
 </script>
   
 </body>
