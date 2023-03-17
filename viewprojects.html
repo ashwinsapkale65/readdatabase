@@ -4,6 +4,20 @@
   <meta charset="UTF-8">
   <title>CodePen - UI Cards</title>
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="An example pen showing how a basic CSS Grid container can create a nice, responsive card layout.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>View Projects</title>
+  </head>
   <style>
     *,
 *::before,
@@ -67,7 +81,7 @@ body {
   padding: 3rem 3rem;
 }
 .card__header {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 500;
   color: #0d0d0d;
   margin-bottom: 1.5rem;
@@ -102,52 +116,310 @@ body {
 .card__btn:hover span, .card__btn:active span {
   margin-left: 1.5rem;
 }
+
+
+
+
+
+
+.main {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 340px;
+
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  background-color: #fdfcfc;
+  font-size: 16px;
+  line-height: 22px;
+  color: #000;
+  border-radius: 7px;
+  box-shadow: -4px -4px 20px rgba(0, 0, 0, 0.505);
+  margin: 30px auto;
+    height: 90%;
+  overflow: scroll;
+
+}
+p {
+text-indent: 50px;
+text-align: justify;
+letter-spacing: 2px;
+}
+.top-card {
+  width: 100%;
+  /* height: 200px; */
+}
+
+.top-card img {
+  width: 100%;
+  animation-name: image-fade-in;
+  animation-duration: 2s;
+
+ 
+  border-radius: 50%;
+  border-color: #000;
+  
+}
+
+
+
+/* Define the animation */
+@keyframes image-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Apply the animation to the image */
+
+
+
+h1 {
+  font-size: 22px;
+  color: #000;
+  font-weight: 600;
+  margin: 12px 0;
+  text-align: center;
+
+}
+
+
+.middle-card, footer {
+  margin: 5px 25px;
+}
+
+.middle-card {
+  text-align: justify;
+}
+
+footer {
+  text-align: center;
+
+}
+
+footer .social-icon {
+  /* padding: 7%; */
+  font-size: 20px;
+  margin: 0 5%;
+  color: rgba(0, 0, 0, .9);
+}
+
+.facebook:hover {color:#3b5999;}
+.twitter:hover {color: #55acee;}
+.google:hover {color: #dd4b39;}
+.github:hover {color: #302f2f;}
+.linkedin:hover {color: #0077B5;}
+
+footer .links {
+  border-top: 2px solid rgba(0, 0, 0, .1);
+  text-align: center;
+  margin-top: 8px;
+  padding: 6px 0;
+
+}
+
+
+
+.bt{
+width: 110px;
+height: 37px;
+margin-top: 10px;
+border-radius: 2px;
+background: #1990cc;
+font-size: 15px;
+border: none;
+color: white;
+}
+.bt:last-child{
+margin-left: 40px;
+border: 2px solid #1990cc;
+background: white;
+color: black;
+}
+
+
   
   
   </style>
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<!DOCTYPE html>
-<html class="no-js" lang="en-GB">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="An example pen showing how a basic CSS Grid container can create a nice, responsive card layout.">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>CSS Grid Cards</title>
-  </head>
 </html>
 <div class="grid">
-  <div class="grid__item">
-    <div class="card"><img class="card__img" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2250&amp;q=80" alt="Snowy Mountains">
-      <div class="card__content">
-        <h1 class="card__header">A starry night</h1>
-        <p class="card__text">Look up at the night sky, and find yourself <strong>immersed</strong> in the amazing mountain range of Aspen. </p>
-        <button class="card__btn">Explore <span>&rarr;</span></button>
-      </div>
-    </div>
-  </div>
-  <div class="grid__item">
-    <div class="card"><img class="card__img" src="https://images.unsplash.com/photo-1485160497022-3e09382fb310?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2250&amp;q=80" alt="Desert">
-      <div class="card__content">
-        <h1 class="card__header">Misty mornings</h1>
-        <p class="card__text">Capture the stunning <strong>essence</strong> of the early morning sunrise in the Californian wilderness.</p>
-        <button class="card__btn">Explore <span>&rarr;</span></button>
-      </div>
-    </div>
-  </div>
-  <div class="grid__item">
-    <div class="card"><img class="card__img" src="https://images.unsplash.com/photo-1506318164473-2dfd3ede3623?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=3300&amp;q=80" alt="Canyons">
-      <div class="card__content">
-        <h1 class="card__header">Utah sunsets</h1>
-        <p class="card__text">Sunsets over the <strong>stunning</strong> Utah Canyonlands, is truly something much more than incredible.</p>
-        <button class="card__btn">Explore <span>&rarr;</span></button>
-      </div>
-    </div>
-  </div>
+ 
+  
 </div>
+
+
+
+
+
 <!-- partial -->
+
+
+<!-- popup window -->
+
+<main class="main" id="main">
+  
+  <section class="top-card">
+    <img  src="https://1.bp.blogspot.com/-aEW05JvCxz0/YTTfWHEtbjI/AAAAAAAACdc/ePAQ9O9moIsa3aEDexcBPguNRCT69mJLgCNcBGAsYHQ/s16000/user.jpg" alt="user picture">
+    <div class="menu-icon">
+      
+    </div>
+
+  </section>
+
+  <section class="middle-card">
+    <h1>Ashwin Sapkale</h1>
+<hr>
+
+  
+<center> <b> <span>Payment Gateway Using Django</span> </p></b>
+     <hr>
+     
+  <b> <p>Project Description :- </b>
+    
+     <br>
+      <span>Developing writers can often benefit from examining an essay, a paragraph, or even a sentence to determine what makes it effective. On the following pages are several paragraphs for you to evaluate on your own, along with the Writing Center's explanation.</span> </p>
+     <hr>
+  
+<b>  <p>Technologies Used :- </b>
+    
+     <br>
+  <span>AI,machine</span> </p>
+<hr>
+  
+<b>  <p>Skills :- </b>
+    
+     <br>
+    <span>AI,machine</span> </p>
+  <hr>
+  </section>
+
+  <footer>
+    <h1>Contact</h1>
+    <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+    <a href="#" class="social-icon google"><i class="fab fa-google"></i></a>
+    <a href="#" class="social-icon github"><i class="fab fa-github"></i></a>
+    <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin"></i></a>
+
+    <section class="links">
+<button class="bt" >Source Code</button>
+<button class="bt">Project Demo</button>
+     
+<center><button onclick="hide('main')" class="bt">Close</button>
+    </section>
+  </footer>
+</main>
+</div>
+</div>
+<script src="data.js"></script>
+<script>
+  var show = function(id) {
+   document.getElementById(id).style.display ='block';
+ }
+ var hide = function(id) {
+   document.getElementById(id).style.display ='none';
+ }
+ </script>
+
+<script>
+  function createcard(sname,pname,update)
+{
+    // create elements
+const gridItem = document.createElement('div');
+gridItem.classList.add('grid__item');
+
+const card = document.createElement('div');
+card.classList.add('card');
+
+const img = document.createElement('img');
+img.classList.add('card__img');
+img.setAttribute('src', 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2250&amp;q=80');
+img.setAttribute('alt', 'Snowy Mountains');
+
+const cardContent = document.createElement('div');
+cardContent.classList.add('card__content');
+
+const header1 = document.createElement('h1');
+header1.classList.add('card__header');
+header1.innerText = 'Project Name :- ';
+
+const projectName = document.createElement('span');
+projectName.innerText = pname;
+
+header1.appendChild(projectName);
+
+const hr1 = document.createElement('hr');
+
+const br1 = document.createElement('br');
+
+const header2 = document.createElement('h1');
+header2.classList.add('card__header');
+header2.innerText = 'Student Name :- ';
+
+const studentName = document.createElement('span');
+studentName.innerText =sname
+
+header2.appendChild(studentName);
+
+const hr2 = document.createElement('hr');
+
+const br2 = document.createElement('br');
+
+const header3 = document.createElement('h1');
+header3.classList.add('card__header');
+header3.innerText = 'Uploaded On :- ';
+
+const udate = document.createElement('span');
+udate.innerText = update;
+
+header3.appendChild(udate);
+
+const btn = document.createElement('button');
+btn.classList.add('card__btn');
+btn.innerText = 'Show Details ';
+btn.onclick = function()
+{
+  document.getElementById('main').style.display="block"
+  
+}
+const span = document.createElement('span');
+span.innerHTML = '&rarr;';
+btn.appendChild(span);
+
+// append elements to parent
+cardContent.appendChild(header1);
+cardContent.appendChild(hr1);
+cardContent.appendChild(br1);
+cardContent.appendChild(header2);
+cardContent.appendChild(hr2);
+cardContent.appendChild(br2);
+cardContent.appendChild(header3);
+cardContent.appendChild(btn);
+
+card.appendChild(img);
+card.appendChild(cardContent);
+
+gridItem.appendChild(card);
+
+// add to DOM
+const container = document.querySelector('.grid'); // replace with the appropriate selector for your HTML
+container.appendChild(gridItem);
+
+}
+
+// Send a GET request to the github to retrieve data
+fetch('https://ashwinsapkale65.github.io/readdatabase/projects.json')
+.then(response => response.json()) // Parse the response as JSON
+.then(data => {
+
+  data.forEach(item => {
+      
+    createcard(item.sname,item.pname,item.udate)
+  });
+})
+.catch(error => console.error(error));
+</script>
   
 </body>
 </html>
