@@ -1,542 +1,1059 @@
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>CodePen - A Pen by Shan Kris</title>
-  <link rel="stylesheet" href="./style.css">
-
-</head>
-
 <style>
-
-
-/* Styling buttons & webpage */
-
-body {
-  background: offwhite;
-  font-family: Arial, sans-serif;
-  text-align: center;
-
-}
-
-button {
-    margin-top: 20px;
-    background-color: rgba(255,255,255,0.3);
-    border: 3px solid #F04A49;
-    color: #F04A49;
-    font-size: 25px;
-    padding: 10px 20px;
-    margin-bottom: 10px;
-    
-}
-
-button:hover {
-    background-color: #F04A49;
-    color: #FFF;
-    border: 3px solid #F04A49;
-    transition: all 0.3s ease 0s;
-}
-</style>
-
-<!-- main window design -->
-<style>
-/* 6720*4880 */
-
-/* main window */
-
-/* Design */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  background-color: #eeeeee;
-}
-
-body {
-  color: #272727;
-  font-family: 'open sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 0;
-  padding: 1rem;
-
-}
-
-.main{
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-h1 {
-    font-size: 24px;
-    font-weight: 400;
-
-}
-
-img {
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;
-}
-
-.btn {
-  color: #909090;
-  padding: 0.8rem;
-  font-size: 14px;
-  text-transform: uppercase;
-  border-radius: 4px;
-  font-weight: 400;
-  display: block;
-  width: 100%;
-  cursor: pointer;
-  border: 1px solid rgba(90, 90, 90, 0.2);
-  background: transparent;
-}
-
-.btn:hover {
-  background-color: rgba(155, 155, 155, 0.12);
-}
-/* minimum info */
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-}
-
-.cards_item {
-  display: flex;
-  padding: 1rem;
-}
-
-@media (min-width: 40rem) {
-  .cards_item {
-    width: 50%;
-  }
-}
-
-@media (min-width: 56rem) {
-  .cards_item {
-    width: 33.3333%;
-  }
-}
-
-.card {
-  background-color: white;
-  color:#000;
-  border-radius: 0.25rem;
-  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.card_content {
-  padding: 1rem;
-/*   background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%); */
-}
-
-.card_title {
-  color: #203060;
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: capitalize;
-  margin: 0px;
-}
-
-.card_text {
-  color: #343434;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  margin-bottom: 1.25rem;    
-  font-weight: 400;
-}
-</style>
-
-<!-- /* max info card css */ -->
-
-
-<style>
-
-
-.card1 { 
-  height: 100%; 
-  overflow: auto;
-  width: 100%;
-
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  font-family: Arial, sans-serif;
-  text-align: center;
-  max-width: 90%;
-  animation-name: fade-in;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in-out;
- 
-
-        
- }
- 
-
-
-.card-body .media {
-    position: relative;
-    width: 120px;
-    height: 120px;
-}
-
-.card-body .media > #progress {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-}
-
-.card-body .media > img {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.card-body .media > img {
-    /* Needs appropriate vendor prefixes */
-    box-sizing: border-box;
-    
-    
-    /* This needs to be double to strokeWidth */
-    padding: 6%;
-}
-
-.card-body .media > img {
-    border-radius: 50%;
-}
-
-@media screen and (min-width: 180px) {
-  .card-link {
-      margin-left: 0.25rem!important;
-  }  
-}
-
-.card-link {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    background-color: #007bff;
-    border-radius: 5px;
-    transition: all 0.2s ease-in-out;
-  }
   
-  .card-link:hover {
-    background-color: #0056b3;
-    color: #fff;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .card-info
-  {
-    font-weight:bold;
-   
-  }
-  
-  @media screen and (min-width: 947px) {
-  .card-link {
-      margin-left: 0.25rem!important;
-  }  
-
-  
-    
+  .columns {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
 }
-
-
-    
-
-
-
+.column {
+  scroll-snap-align: start;
+}
 
 
 
 </style>
 
-<body>
-  <!-- show hide popup  -->
-  <script>
-   var show = function(id) {
-    document.getElementById(id).style.display ='block';
-  }
-  var hide = function(id) {
-    document.getElementById(id).style.display ='none';
-  }
-  </script>
 
-
-<!-- data coming script -->
-
-<script>
-
-
-// create a card using js dom
-
-function createcard(sname,pname,pdes,sphoto,pimg,ptech,skills,linkdin,github,source,demo,udate)
-{
-    const card = document.querySelector('.cards');
-
-
-
-const li = document.createElement('li');
-li.className="cards_item"
-
-
-const div1  = document.createElement('div');
-div1.className="card"
-
-const div2  = document.createElement('div');
-div2.className="card_image"
-
-const img  = document.createElement('img');
-img.src=pimg
-
-
-const div3  = document.createElement('div');
-div3.className="card_content"
-
-const h1  = document.createElement('h2');
-h1.className="card_title"
-h1.textContent="Project Title:- "
-
-const span1 = document.createElement('span')
-span1.textContent=pname
-
-const hr1  = document.createElement('hr');
-
-
-const h2  = document.createElement('h2');
-h2.className="card_title"
-h2.textContent="Student Name:- "
-
-const span2 = document.createElement('span')
-span2.textContent=sname
-
-const hr2  = document.createElement('hr');
-
-const h3  = document.createElement('h2');
-h3.className="card_title"
-h3.textContent="Uploaded On:- "
-
-const span3 = document.createElement('span')
-span3.textContent=udate
-
-
-
-const button = document.createElement('button')
-button.textContent="Get Info"
-
-const main = document.querySelector('.main');
-button.onclick = function() {
-const div4 = document.getElementById("card1")
-div4.style.display="block"
-
-const p1 = document.getElementById('sphoto')
-const p2 = document.getElementById('sname')
-const p3 = document.getElementById('pname')
-const p4 = document.getElementById('pdes')
-const p5 = document.getElementById('ptech')
-const p6 = document.getElementById('skills')
-
-
-
-p2.textContent=sname
-p3.textContent=pname
-p4.textContent=pdes
-p1.src=sphoto
-
-p5.textContent=ptech
-p6.textContent=skills
-
-const l1 = document.getElementById('linkdin')
-const l2 = document.getElementById('github')
-const l3 = document.getElementById('source')
-const l4 = document.getElementById('demo')
-l1.onclick = function()
-{
-    window.open(linkdin,"_self")
-}
-l2.onclick = function()
-{
-    window.open(github,"_self")
-}
-l3.onclick = function()
-{
-    window.open(source,"_self")
-}
-l4.onclick = function()
-{
-    window.open(demo,"_self")
-}
-
-
-
-
-}
-
-
-
-
-
-card.appendChild(li)
-li.appendChild(div1)
-div1.appendChild(div2)
-div1.appendChild(div3)
-div2.appendChild(img)
-div3.appendChild(h1)
-h1.appendChild(span1)
-div3.appendChild(hr1)
-div3.appendChild(h2)
-h2.appendChild(span2)
-div3.appendChild(hr2)
-div3.appendChild(h3)
-h3.appendChild(span3)
-div3.appendChild(button)
-
-}
-
-
-
-
-
-  // Send a GET request to the github to retrieve data
-  fetch('https://ashwinsapkale65.github.io/readdatabase/projects.json')
-  .then(response => response.json()) // Parse the response as JSON
-  .then(data => {
-
-    data.forEach(item => {
-        
-      createcard(item.sname,item.pname,item.pdes,item.sphoto,item.pimg,item.ptech,item.skills,item.linkdin,item.github,item.source,item.demo,item.udate)
-    });
-  })
-  .catch(error => console.error(error));
-
-
-
-
-
-
-// profile progress
-
-window.onload = function onLoad() {
-  let circle = new ProgressBar.Circle(document.getElementById("progress"), {
-    // This means 3% of the container
-    strokeWidth: 3,
-    trailWidth: 1,
-    easing: "easeInOut",
-    duration: 2800,
-    color: "#edc36f",
-    from: { color: "#FFEA82" },
-    to: { color: "#00CC00" },
-    step: (state, bar) => {
-      bar.path.setAttribute("stroke", state.color);
-    }
-  });
-
-  setTimeout(function() {
-    circle.animate(1);
-  }, 2800);
-};
-</script>
-
-
-
-<!-- main html page -->
-<div class="main">
-        
-        <ul class="cards">
-        
-        </ul>
+<!-- Reference https://bulma.io/documentation/columns/options/#multiline -->
+<div class="columns is-multiline">
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
       </div>
-
-
-      <!-- This is what will be included inside the popup -->
-
-   
-    <div class="card1 d-flex flex-row shadow-sm" id="card1">
-      <div class="card-body">
-        <div class="row row-flex">
-          <div class="col-md-3" >
-            <div class="media mr-4 mx-auto d-block">
-              <img  id="sphoto" class="animated fadeIn slower" />
-              <div id="progress"></div>
-            </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
           </div>
-          <div class="col-md-9" >
-  
-              <p class="card-text">Name :- </p>
-             <p class="card-info" id="sname"></p>
-            <hr>
-            <p class="card-text">Project Name :- </p>
-             <p class="card-info" id="pname"></p>
-             <hr>
-             <p class="card-text">Project Description :- </p>
-             <p class="card-info" id="pdes">
-             <hr>
-             <p class="card-text">Technology Used :- </p>
-             <p class="card-info" id="ptech"></p>
-             <hr>
-             <p class="card-text">Skills :- </p>
-             <p class="card-info" id="skills"></p>
-             <hr>
-             
-            <p class="card-text">Contact :- </p> 
-             <a  class="card-link" id="linkdin">Linkdin</a>
-             <a  class="card-link" id="github">Github</a>
-            
-             <hr>
-            <p class="card-text">Project Links :- </p> 
-            <a  class="card-link" id="source">GO TO SOURCE CODE</a>
-            <a  class="card-link" id="demo">Project Demo</a>
-            <hr>
-            <a  onclick="hide('card1')" class="card-link">Close</a>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/1.0.1/progressbar.min.js">
-  </script>
-  <!-- partial -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script><script  src="./script.js"></script>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card wrapper -->
+  <!-- Reference https://bulma.io/documentation/columns/responsiveness/#different-column-sizes-per-breakpoint -->
+  <div class="column is-half is-one-third-desktop is-one-quarter-widescreen">
+    <!-- Card component -->
+    <!-- Reference https://bulma.io/documentation/components/card/ -->
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Hyunbin</p>
+            <p class="subtitle is-6">@hyunbinseo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
-
-
-
-      
-
-<!-- partial -->
-  <script src='https://code.jquery.com/jquery-3.1.1.slim.min.js'></script>
-</body>
-</html>
-
-
-<!-- 6720*4880 -->
