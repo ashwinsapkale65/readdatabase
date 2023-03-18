@@ -1,7 +1,7 @@
 [
-   
-   
-   
-       
-    
+    { 
+        "name": "ananta",
+        "age": "15",
+        "country": "Atlanta"
+    }
 ]
