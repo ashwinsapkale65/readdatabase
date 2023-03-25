@@ -2,11 +2,13 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - UI Cards</title>
+  <title>View Projects</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+  
   <style>
-  *,
+    *,
 *::before,
 *::after {
   margin: 0;
@@ -21,12 +23,11 @@ html {
 }
 
 
-
-body {
+main {
   display: flex;
   justify-content: center;
   align-content: center;
-  padding: 6rem;
+  padding: 2rem;
   background-color: #f5f5f5;
   font-family: "Inter", sans-serif;
 }
@@ -107,18 +108,17 @@ body {
   margin-left: 1.5rem;
 }
 
-
-
-
+/* popup window  */
 
 .main {
   display: none;
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 340px;
+  width: 400px;
 
   transform: translate(-50%, -50%);
+  
   
   background-color: #fdfcfc;
   font-size: 16px;
@@ -129,7 +129,8 @@ body {
   margin:  auto;
     height: 90%;
   overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-x: scroll;
+  
 
 }
 p {
@@ -275,7 +276,148 @@ color: black;
     transform: translate(0);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===========================
+   ====== Search Box ====== 
+   =========================== */
+
+
+
+/* ===========================
+   ====== Search Box ====== 
+   =========================== */
+
+   .search
+   {
+     border: 2px solid #CF5C3F;
+     overflow: auto;
+     border-radius: 5px;
+     -moz-border-radius: 5px;
+     -webkit-border-radius: 5px;
+   }
+   
+   .search input[type="text"]
+   {
+     border: 0px;
+     width: 50%;
+     padding: 10px 10px;
+   }
+   
+   .search input[type="text"]:focus
+   {
+     outline: 0;
+   }
+   
+   .search input[type="submit"]
+   {
+     border: 0px;
+     background: none;
+     background-color: #CF5C3F;
+     color: #fff;
+     float: right;
+     padding: 10px;
+    
+     -moz-border-radius-top-right: 5px;
+     -webkit-border-radius-top-right: 5px;
+    
+     -moz-border-radius-bottom-right: 5px;
+     -webkit-border-radius-bottom-right: 5px;
+           cursor:pointer;
+   }
+   
+   /* ===========================
+      ====== Medua Query for Search Box ====== 
+      =========================== */
+   
+   @media only screen and (min-width : 150px) and (max-width : 780px)
+   {
+  
+     .search
+     {
+       width: 95%;
+       margin: 0 auto;
+     }
+   
+   }
+
+
+/* no result page */
+
+/*======================
+    404 page
+=======================*/
+
+
+
+
+.animate-charcter {
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+ 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  font-size: 50px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+
+
+.running-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #ccc;
+  overflow: hidden;
+  max-width: 800px; /* Change this to whatever value you want */
+}
+
+
+.scrolling-text {
+  position: relative;
+  white-space: nowrap;
+  font-size: 14px;
+  animation: scroll 19s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
   </style>
+  
+
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -289,10 +431,39 @@ color: black;
     <title>View Projects</title>
   </head>
 </html>
-<div class="grid">
- 
+<header>
+
+  <center><h3 class="animate-charcter">Projects</h3>
+    <div class="running-bar">
+      <div class="scrolling-text" id="scrolling-text">
+        This is some scrolling text that will run inside the bar.
+      </div>
+    </div>
   
+  
+  
+  </center>
+
+</header>
+<div class="search">
+  
+  
+    <input type="text" id="search"  placeholder="Search for Student Name , Project Name , Technologies Used , Skills , Upload Date (Tip: Press Enter For Dekstop Users)" >
+    <input type="submit" onclick="searchdata()" id="btsearch"  value="Search">
+  
+ 
 </div>
+
+<main>
+
+<div class="grid" id="grid">
+
+   
+</div>
+
+</main>
+
+
 
 
 
@@ -306,7 +477,7 @@ color: black;
 <main class="main" id="main">
  <center><div  class="scroll" id="scroll"></div></center> 
   <section class="top-card">
-    <img  src="https://1.bp.blogspot.com/-aEW05JvCxz0/YTTfWHEtbjI/AAAAAAAACdc/ePAQ9O9moIsa3aEDexcBPguNRCT69mJLgCNcBGAsYHQ/s16000/user.jpg" alt="user picture">
+    <img  id="sphoto">
     <div class="menu-icon">
       
     </div>
@@ -314,46 +485,44 @@ color: black;
   </section>
 
   <section class="middle-card">
-    <h1>Ashwin Sapkale</h1>
+    <h1  id="sname" ></h1>
 <hr>
 
   
-<center> <b> <span>Payment Gateway Using Django</span> </p></b>
+<center> <b> <span  id="pname">Payment Gateway Using Django</span> </p></b>
      <hr>
      
   <b> <p>Project Description :- </b>
     
      <br>
-      <span>Developing writers can often benefit from examining an essay, a paragraph, or even a sentence to determine what makes it effective. On the following pages are several paragraphs for you to evaluate on your own, along with the Writing Center's explanation.</span> </p>
+      <span id="pdes"></span> </p>
      <hr>
   
 <b>  <p>Technologies Used :- </b>
     
      <br>
-  <span>AI,machine</span> </p>
+  <span id="ptech"></span> </p>
 <hr>
   
 <b>  <p>Skills :- </b>
     
      <br>
-    <span>AI,machine</span> </p>
+    <span id="skills">AI,machine</span> </p>
   <hr>
   </section>
 
   <footer>
     <h1>Contact</h1>
-    <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
-    <a href="#" class="social-icon google"><i class="fab fa-google"></i></a>
-    <a href="#" class="social-icon github"><i class="fab fa-github"></i></a>
-    <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin"></i></a>
+
+    <a href="#" id="github" class="social-icon github"><i class="fab fa-github"></i></a>
+    <a href="#" id="linkdin" class="social-icon linkedin"><i class="fab fa-linkedin"></i></a>
 
   
 
     <section class="links">
  
-<button class="bt" >Source Code</button>
-<button class="bt">Project Demo</button>
+<button class="bt" id="source" >Source Code</button>
+<button class="bt" id="demo">Project Demo</button>
      
 <center><button onclick="hide('main')" class="bt">Close</button>
     </section>
@@ -370,120 +539,257 @@ color: black;
    document.getElementById(id).style.display ='none';
  }
  </script>
+
+
 <script>
-  function createcard(sname,pname,update)
-{
-    // create elements
-const gridItem = document.createElement('div');
-gridItem.classList.add('grid__item');
+    var button = document.getElementById("btsearch");
+var textBox = document.getElementById('search');
+textBox.addEventListener("keyup", function (event) {
+            if (event.keyCode == 13) {
+                button.click();
+            }
+        });
+</script>
 
-const card = document.createElement('div');
-card.classList.add('card');
-
-const img = document.createElement('img');
-img.classList.add('card__img');
-img.setAttribute('src', 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2250&amp;q=80');
-img.setAttribute('alt', 'Snowy Mountains');
-
-const cardContent = document.createElement('div');
-cardContent.classList.add('card__content');
-
-const header1 = document.createElement('h1');
-header1.classList.add('card__header');
-header1.innerText = 'Project Name :- ';
-
-const projectName = document.createElement('span');
-projectName.innerText = pname;
-
-header1.appendChild(projectName);
-
-const hr1 = document.createElement('hr');
-
-const br1 = document.createElement('br');
-
-const header2 = document.createElement('h1');
-header2.classList.add('card__header');
-header2.innerText = 'Student Name :- ';
-
-const studentName = document.createElement('span');
-studentName.innerText =sname
-
-header2.appendChild(studentName);
-
-const hr2 = document.createElement('hr');
-
-const br2 = document.createElement('br');
-
-const header3 = document.createElement('h1');
-header3.classList.add('card__header');
-header3.innerText = 'Uploaded On :- ';
-
-const udate = document.createElement('span');
-udate.innerText = update;
-
-header3.appendChild(udate);
-
-const btn = document.createElement('button');
-btn.classList.add('card__btn');
-btn.innerText = 'Show Details ';
-btn.onclick = function()
-{
-  document.getElementById('main').style.display="block"
+<script>
+  function fetchQuote() {
+    fetch('https://api.quotable.io/random')
+      .then(response => response.json())
+      .then(data => {
+        const quote = document.getElementById('scrolling-text');
+        quote.textContent = data.content
+        
+      });
+  }
   
-}
-const span = document.createElement('span');
-span.innerHTML = '&rarr;';
-btn.appendChild(span);
+  fetchQuote(); // Fetch initial quote
+  
+  setInterval(fetchQuote, 18000); // Fetch new quote every 5 seconds
+  </script>
 
-// append elements to parent
-cardContent.appendChild(header1);
-cardContent.appendChild(hr1);
-cardContent.appendChild(br1);
-cardContent.appendChild(header2);
-cardContent.appendChild(hr2);
-cardContent.appendChild(br2);
-cardContent.appendChild(header3);
-cardContent.appendChild(btn);
 
-card.appendChild(img);
-card.appendChild(cardContent);
+<script>
 
-gridItem.appendChild(card);
+if ((screen.width<1024)) {
+  
+   document.getElementById('running-bar').style.display  = "none"
+   
+   }
+</script>
+<script>
+  
+  function createcard(sname, pname, update, pdes, ptech, skills, pimg, sphoto, linkdin, github, source, demo) {
+  // create elements
+  const gridItem = document.createElement('div');
+  gridItem.classList.add('grid__item');
 
-// add to DOM
-const container = document.querySelector('.grid'); // replace with the appropriate selector for your HTML
-container.appendChild(gridItem);
+  const card = document.createElement('div');
+  card.classList.add('card');
+
+  const img = document.createElement('img');
+  img.classList.add('card__img');
+  img.setAttribute('src', pimg);
+
+
+  const cardContent = document.createElement('div');
+  cardContent.classList.add('card__content');
+
+
+  const header1 = document.createElement('h1');
+  header1.classList.add('card__header');
+  header1.innerText = 'Project Name :- ';
+
+  const projectName = document.createElement('span');
+  projectName.innerText = pname;
+
+  header1.appendChild(projectName);
+
+  const hr1 = document.createElement('hr');
+
+  const br1 = document.createElement('br');
+
+  const header2 = document.createElement('h1');
+  header2.classList.add('card__header');
+  header2.innerText = 'Student Name :- ';
+
+  const studentName = document.createElement('span');
+  studentName.innerText = sname
+
+  header2.appendChild(studentName);
+
+  const hr2 = document.createElement('hr');
+
+  const br2 = document.createElement('br');
+
+  const header3 = document.createElement('h1');
+  header3.classList.add('card__header');
+  header3.innerText = 'Uploaded On :- ';
+
+  const udate = document.createElement('span');
+  udate.innerText = update;
+
+  header3.appendChild(udate);
+
+  const btn = document.createElement('button');
+  btn.classList.add('card__btn');
+  btn.innerText = 'Show Details ';
+  btn.onclick = function () {
+    const img1 = document.getElementById('sphoto');
+
+    img1.setAttribute('src', sphoto);
+    document.getElementById('scroll').style.display = "block"
+    setTimeout(() => {
+      const box = document.getElementById('scroll');
+
+      // 👇️ removes element from DOM
+      box.style.display = 'none';
+
+      // 👇️ hides element (still takes up space on page)
+      // box.style.visibility = 'hidden';
+    }, 1500);
+
+    document.getElementById('main').style.display = "block"
+
+    document.getElementById('sname').textContent = sname
+    document.getElementById('pname').textContent = pname
+    document.getElementById('pdes').textContent = pdes
+    document.getElementById('ptech').textContent = ptech
+    document.getElementById('skills').textContent = skills
+    document.getElementById('linkdin').setAttribute('href', linkdin)
+    document.getElementById('github').setAttribute('href', github)
+    document.getElementById('source').onclick = function () {
+      window.open(source, '_self')
+    }
+    document.getElementById('demo').onclick = function () {
+      window.open(demo, '_self')
+    }
+
+  }
+  const span = document.createElement('span');
+  span.innerHTML = '&rarr;';
+  btn.appendChild(span);
+
+  // append elements to parent
+
+  cardContent.appendChild(header1);
+  cardContent.appendChild(hr1);
+  cardContent.appendChild(br1);
+  cardContent.appendChild(header2);
+  cardContent.appendChild(hr2);
+  cardContent.appendChild(br2);
+  cardContent.appendChild(header3);
+  cardContent.appendChild(btn);
+
+  card.appendChild(img);
+  card.appendChild(cardContent);
+
+  gridItem.appendChild(card);
+
+  // add to DOM
+  const container = document.querySelector('.grid'); // replace with the appropriate selector for your HTML
+  container.appendChild(gridItem);
 
 }
 
 // Send a GET request to the github to retrieve data
-fetch('https://ashwinsapkale65.github.io/readdatabase/projects.json')
-.then(response => response.json()) // Parse the response as JSON
-.then(data => {
+fetch('https://ashwinsapkale65.github.io/codephotondatabase/projects.json')
+  .then(response => response.json()) // Parse the response as JSON
+  .then(data => {
 
-  data.forEach(item => {
+      // Sort the data by a specific parameter, e.g. "name"
+      data.sort((a, b) => (a.udate < b.udate) ? 1 : -1);
       
-    createcard(item.sname,item.pname,item.udate)
-  });
-})
-.catch(error => console.error(error));
+
+    data.forEach(item => {
+      
+
+      // Do something with the sorted data
+      
+      
+
+      createcard(item.sname, item.pname, item.udate, item.pdes, item.ptech, item.skills, item.pimg, item.sphoto, item.linkdin, item.github, item.source, item.demo)
+
+    });
+  })
+  .catch(error => console.error(error));
 
 
+// search button click
 
-  setTimeout(() => {
-    const box = document.getElementById('scroll');
+function searchdata()
+{
+ 
+  var da = document.getElementById('search').value;
   
-    // 👇️ removes element from DOM
-    box.style.display = 'none';
+  const grid = document.getElementById('grid')
+  grid.innerHTML = ""
   
-    // 👇️ hides element (still takes up space on page)
-    // box.style.visibility = 'hidden';
-  }, 2000); 
+  
+  if(da != '')
+  {
+    
+    
+  
+    searching(da)
+    
+  }
+
+
+  else
+  {
+    location.reload()
+  }
+}
+
+
+function searching(keyword)
+{
+
+ 
+// Fetch data from API endpoint
+fetch('https://ashwinsapkale65.github.io/codephotondatabase/projects.json')
+  .then(response => response.json())
+  .then(data => {
+    
+    // Filter data based on search criteria
+    const searchCriteria1 = keyword;
+
+    const studentname = capitalize(searchCriteria1);
+
+    const filter = data.filter(item => item.sname.includes(studentname) || item.pname.includes(studentname) || item.ptech.includes(studentname) || item.ptech.includes(searchCriteria1.toLowerCase()) || item.skills.includes(studentname) || item.pname.includes(searchCriteria1.toLowerCase()) || item.skills.includes(searchCriteria1.toLowerCase()) || item.sname.includes(searchCriteria1.toLowerCase()) || item.udate.includes(searchCriteria1.toLowerCase()));
+    for (let index = 0; index < filter.length; index++) {
+      createcard(filter[index].sname, filter[index].pname, filter[index].udate, filter[index].pdes, filter[index].ptech, filter[index].skills, filter[index].pimg, filter[index].sphoto, filter[index].linkdin, filter[index].github, filter[index].source, filter[index].demo)
+
+      
+    }
+
+  })
+  .catch(error => console.error(error));
+
  
 
 
+}
 
+
+
+// Capital each word 
+
+const capitalize = str => {
+  // split the string into an array of words
+  const words = str.split(" ");
+  // loop through each word and capitalize its first letter
+  const capitalizedWords = words.map(word =>
+    word.charAt(0).toUpperCase() + word.slice(1)
+  );
+  // join the capitalized words back into a string
+  return capitalizedWords.join(" ");
+};
+  
+  
 </script>
+  
+
   
 </body>
 </html>
