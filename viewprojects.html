@@ -6,9 +6,8 @@
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-  
-  <style>
-    *,
+<style>
+  *,
 *::before,
 *::after {
   margin: 0;
@@ -115,7 +114,7 @@ main {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 100%;
+  width: 400px;
 
   transform: translate(-50%, -50%);
   
@@ -127,7 +126,7 @@ main {
   border-radius: 7px;
   box-shadow: -4px -4px 20px rgba(0, 0, 0, 0.505);
   margin:  auto;
-    height: 100%;
+    height: 90%;
   overflow-y: scroll;
   overflow-x: scroll;
   
@@ -415,9 +414,9 @@ color: black;
     transform: translateX(-100%);
   }
 }
-  </style>
   
-
+  
+  </style>
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -574,12 +573,10 @@ if (screen.width<1024) {
   
     const n = document.getElementById('running-bar')
     n.innerHTML= ""
-   
    }
 </script>
 <script>
-  
-  function createcard(sname, pname, update, pdes, ptech, skills, pimg, sphoto, linkdin, github, source, demo) {
+ function createcard(sname, pname, update, pdes, ptech, skills, pimg, sphoto, linkdin, github, source, demo) {
   // create elements
   const gridItem = document.createElement('div');
   gridItem.classList.add('grid__item');
@@ -785,11 +782,9 @@ const capitalize = str => {
   );
   // join the capitalized words back into a string
   return capitalizedWords.join(" ");
-};
-  
+}; 
   
 </script>
-  
 
   
 </body>
