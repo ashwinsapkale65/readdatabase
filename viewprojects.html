@@ -786,6 +786,35 @@ const capitalize = str => {
   
 </script>
 
+<script>
+  // Define a list of approved referrer domains
+var approvedDomains = ["https://www.codephoton.com/"];
+
+// Get the current page's referrer
+var referrer = document.referrer;
+
+// Check if the referrer is empty or not from an approved domain
+if (!referrer || !approvedDomains.includes(getDomainFromUrl(referrer))) {
+  // If not, redirect the user to a different page
+  window.location.href = "https://example.com/error-page";
+}
+
+// Helper function to extract the domain from a URL
+function getDomainFromUrl(url) {
+  var domain;
+  // find & remove protocol (http, ftp, etc.) and get domain
+  if (url.indexOf("://") > -1) {
+    domain = url.split('/')[2];
+  } else {
+    domain = url.split('/')[0];
+  }
+  // find & remove port number
+  domain = domain.split(':')[0];
+  return domain;
+}
+
+</script>
+
   
 </body>
 </html>
